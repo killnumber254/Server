@@ -24,7 +24,7 @@ User.init(
 				},
 			},
 		},
-		pass: {
+		password: {
 			type: DataTypes.STRING,
 			allowNull: false,
 		},
@@ -32,14 +32,14 @@ User.init(
 	{ sequelize, tableName: "Users" }
 );
 
-// User.hasMany(Role, {
-// 	as: "Roles",
-// 	foreignKey: "userId",
-// });
+User.hasMany(Role, {
+	as: "Roles",
+	foreignKey: "userId",
+});
 
-// Role.belongsTo(User, {
-// 	foreignKey: "userId",
-// });
+Role.belongsTo(User, {
+	foreignKey: "userId",
+});
 
 // User.hasMany(Token, {
 //   as: "Tokens",
