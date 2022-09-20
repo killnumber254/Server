@@ -61,7 +61,6 @@ app.use(function (req, res, next) {
 
 passport.serializeUser((user, done) => {
 	done(null, user.id);
-	// console.log(user.id);
 });
 
 passport.deserializeUser(function (id, done) {

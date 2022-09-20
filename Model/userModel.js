@@ -1,6 +1,7 @@
 const { Sequelize, DataTypes } = require("sequelize");
 const sequelize = require("../db/sequelize");
 const Role = require("./roleModel");
+const Token = require("./tokenModel");
 class User extends Sequelize.Model {}
 
 User.init(
@@ -41,13 +42,13 @@ Role.belongsTo(User, {
 	foreignKey: "userId",
 });
 
-// User.hasMany(Token, {
-//   as: "Tokens",
-//   foreignKey: "userId",
-// });
-// Token.belongsTo(User, {
-//   foreignKey: "userId",
-// });
+User.hasMany(Token, {
+	as: "Tokens",
+	foreignKey: "userId",
+});
+Token.belongsTo(User, {
+	foreignKey: "userId",
+});
 
 // (async () => {
 // 	await sequelize.sync({ force: true });
